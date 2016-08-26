@@ -156,5 +156,17 @@ module.exports = function(ctx) {
     return api;
   };
 
+  api.mergeFeatures = function(featureIds, newId) {
+    console.log(featureIds);
+    ctx.events.mergeFeatures({ silent: true });
+    return api;
+  };
+
+  api.splitFeatures = function(featureIds, newId) {
+    console.log(featureIds);
+    ctx.events.splitFeatures({ silent: true });
+    return api;
+  };
+
   return api;
 };
