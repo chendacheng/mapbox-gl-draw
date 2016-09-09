@@ -124,6 +124,15 @@ module.exports = function(ctx) {
         onActivate: () => ctx.events.changeMode(Constants.modes.DRAW_LINE_STRING)
       });
     }
+    
+    if (controls[Constants.types.CONNECT_POINTS]) {
+      buttonElements[Constants.types.CONNECT_POINTS] = createControlButton(Constants.types.CONNECT_POINTS, {
+        container: controlGroup,
+        className: Constants.classes.CONTROL_BUTTON_LINE,
+        title: `Connect 2 Points ${ctx.options.keybindings && '(c)'}`,
+        onActivate: () => ctx.events.changeMode(Constants.modes.CONNECT_POINTS)
+      });
+    }
 
     if (controls[Constants.types.POLYGON]) {
       buttonElements[Constants.types.POLYGON] = createControlButton(Constants.types.POLYGON, {

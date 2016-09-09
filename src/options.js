@@ -14,6 +14,7 @@ const defaultOptions = {
 
 const showControls = {
   point: true,
+  connect_points:true,
   line_string: true,
   polygon: true,
   trash: true
@@ -21,6 +22,7 @@ const showControls = {
 
 const hideControls = {
   point: false,
+  connect_points:false,
   line_string: false,
   polygon: false,
   trash: false

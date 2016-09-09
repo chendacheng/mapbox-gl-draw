@@ -26,7 +26,8 @@ module.exports = {
   types: {
     POLYGON: 'polygon',
     LINE: 'line_string',
-    POINT: 'point'
+    POINT: 'point',
+    CONNECT_POINTS:'connect_points'
   },
   geojsonTypes: {
     FEATURE: 'Feature',
@@ -45,7 +46,8 @@ module.exports = {
     DRAW_POINT: 'draw_point',
     SIMPLE_SELECT: 'simple_select',
     DIRECT_SELECT: 'direct_select',
-    STATIC: 'static'
+    STATIC: 'static',
+    CONNECT_POINTS: 'connect_points'
   },
   events: {
     CREATE: 'draw.create',
@@ -53,7 +55,8 @@ module.exports = {
     UPDATE: 'draw.update',
     SELECTION_CHANGE: 'draw.selectionchange',
     MODE_CHANGE: 'draw.modechange',
-    RENDER: 'draw.render'
+    RENDER: 'draw.render',
+    CONNECT_POINTS:'draw.connect_points'
   },
   updateActions: {
     MOVE: 'move',
