@@ -1,14 +1,18 @@
-const CommonSelectors = require('../lib/common_selectors');
-const Point = require('../feature_types/point');
 const Constants = require('../constants');
 
 module.exports = function(ctx) {
-
+  
+  function handleClick(e) {
+    ctx.map.fire(Constants.events.CONNECT_POINTS, {
+          features: ctx.store.getSelected().map(f => f.toGeoJSON())
+    });
+    ctx.events.changeMode(Constants.modes.SIMPLE_SELECT);
+    ctx.store.clearSelected();
+  }
+  
   return {
     start() {
-    	ctx.map.fire(Constants.events.CONNECT_POINTS, {
-    	      features: ctx.store.getSelected().map(f => f.toGeoJSON())
-    	});
+      setTimeout( handleClick, 0 );
     },
 
     stop() {
@@ -16,9 +20,7 @@ module.exports = function(ctx) {
     },
 
     render(geojson, callback) {
-    },
-
-    trash() {
+      callback(geojson);
     }
   };
 };
