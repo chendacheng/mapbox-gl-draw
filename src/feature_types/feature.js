@@ -44,6 +44,7 @@ Feature.prototype.internal = function(mode) {
     properties: {
       id: this.id,
       meta: Constants.meta.FEATURE,
+      meta_2:this.properties.direction,
       'meta:type': this.type,
       active: Constants.activeStates.INACTIVE,
       mode: mode
