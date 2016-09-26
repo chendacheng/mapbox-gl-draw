@@ -39,16 +39,16 @@ Feature.prototype.toGeoJSON = function() {
 };
 
 Feature.prototype.internal = function(mode) {
+  var new_properties = this.properties;
+  new_properties.id = this.id;
+  new_properties.meta = Constants.meta.FEATURE;
+  new_properties["meta:type"] = this.type;
+  new_properties.active = Constants.activeStates.INACTIVE;
+  new_properties.mode = mode;
+  
   return {
     type: Constants.geojsonTypes.FEATURE,
-    properties: {
-      id: this.id,
-      meta: Constants.meta.FEATURE,
-      meta_2:this.properties.direction,
-      'meta:type': this.type,
-      active: Constants.activeStates.INACTIVE,
-      mode: mode
-    },
+    properties: new_properties,
     geometry: {
       coordinates: this.getCoordinates(),
       type: this.type
